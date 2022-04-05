@@ -8,7 +8,8 @@ data "aws_iam_policy_document" "s3_write" {
     sid = "S3BucketActions"
     actions = [
       "s3:GetBucketLocation",
-      "s3:GetBucketVersioning"
+      "s3:GetBucketVersioning",
+      "s3:ListBucket*"
     ]
     resources = [
       var.bucket_arn
