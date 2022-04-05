@@ -5,14 +5,6 @@ resource "aws_iam_user" "user" {
 
 data "aws_iam_policy_document" "s3_write" {
   statement {
-    sid = "S3List"
-    actions = [
-      "s3:ListAllMyBuckets"
-    ]
-    resources = ["*"]
-  }
-
-  statement {
     sid = "S3BucketActions"
     actions = [
       "s3:GetBucketLocation",
