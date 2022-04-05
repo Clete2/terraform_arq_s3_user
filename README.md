@@ -15,7 +15,7 @@ To view the outputs, you need to output them from the main module:
 
 ```hcl
 module "my_user" {
-  source = "https://github.com/Clete2/terraform_arq_s3_user.git"
+  source = "github.com/Clete2/terraform_arq_s3_user.git"
   name   = "my-user"
 }
 
