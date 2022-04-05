@@ -7,17 +7,26 @@ data "aws_iam_policy_document" "s3_write" {
   statement {
     sid = "S3List"
     actions = [
-      "s3:ListAllMyBuckets",
-      "s3:HeadBucket"
+      "s3:ListAllMyBuckets"
     ]
     resources = ["*"]
   }
 
   statement {
-    sid     = "S3Write"
+    sid = "S3BucketActions"
+    actions = [
+      "s3:GetBucketLocation",
+      "s3:GetBucketVersioning"
+    ]
+    resources = [
+      var.bucket_arn
+    ]
+  }
+
+  statement {
+    sid     = "S3ObjectWrite"
     actions = ["s3:*"]
     resources = [
-      var.bucket_arn,
       "${var.bucket_arn}${var.bucket_prefix}"
     ]
   }
